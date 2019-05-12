@@ -1,0 +1,36 @@
+server:
+  port: 8770
+  contextPath: /Qc
+
+my:
+  requestLimit: 1000
+  responseLimit: 10000
+  debug: false
+  parallel: true
+  partitionSize: 10
+  poolSize: 3
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1521:xe
+    username: OW_BASE_US_12
+    password: ow_base_us_12
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    max-active: 100
+    initial-size: 5
+    max-idle: 5
+    min-idle: 2
+    test-while-idle: true
+    test-on-borrow: true
+    validation-query: SELECT 'x' FROM dual
+    time-between-eviction-runs-millis: 5000
+    min-evictable-idle-time-millis: 60000
+  freemarker:
+    enabled: true
+    template-loader-path: classpath:/templates
+#   jpa:
+#      show-sql: true
+#      properties:
+#        hibernate:
+#            format_sql: true
+#            flushMode: org.hibernate.FlushMode.ALWAYS
