@@ -48,11 +48,30 @@ RETURN cursorType AS
     L_cursor    cursorType;
       v_ReturnCursor cursorType;
       v_SQLStatement VARCHAR2(4000);
+      v_result VARCHAR2(4000);
     BEGIN
       v_SQLStatement := I_xml;
 
-      OPEN v_ReturnCursor FOR v_SQLStatement;
-      RETURN v_ReturnCursor;
+      IF(UPPER( v_SQLStatement ) LIKE '%SELECT%') THEN 
+        OPEN v_ReturnCursor FOR v_SQLStatement;
+        RETURN v_ReturnCursor;
+    
+      ELSE
+        EXECUTE IMMEDIATE v_SQLStatement;
+        OPEN v_ReturnCursor FOR
+        SELECT 'OK' as STATUS
+        FROM DUAL;
+
+        RETURN v_ReturnCursor;
+      END IF;
+    EXCEPTION
+    WHEN OTHERS THEN
+        v_result:= SUBSTR('CODE'|| SQLERRM ,0,3991);
+        OPEN v_ReturnCursor FOR
+        SELECT 'ERROR' as STATUS ,v_result as code
+        FROM DUAL;
+
+        RETURN v_ReturnCursor;
 
 END GET_OBJECTS_BY_NAME;
 
