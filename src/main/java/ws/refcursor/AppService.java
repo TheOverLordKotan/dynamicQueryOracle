@@ -164,11 +164,13 @@ public class AppService {
 	private String toProperty(String property){
 		String ret = property;
 		if(ret!=null && ret.length()>0){
-			ret = ret.replaceAll("[^a-zA-Z0-9]", "");
+			//ret = ret.replaceAll("[^a-zA-Z0-9]", "");
 			if(ret!=null && ret.length()>0){
 				ret = StringUtils.stripStart(ret, "1234567890");
 				if(ret!=null && ret.length()>0){
-					ret = StringUtils.uncapitalize(ret);
+					if (!Character.isUpperCase(ret.charAt(0))) {
+						ret = StringUtils.uncapitalize(ret);
+					}
 				}
 			}
 		} 
