@@ -83,6 +83,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
+        		<dependency>
+        			<groupId>org.springframework.boot</groupId>
+        			<artifactId>
+        				spring-boot-configuration-processor
+        			</artifactId>
+        			<optional>true</optional>
+        		</dependency>
     </dependencies>
     
     <properties>
@@ -94,11 +101,39 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>ojdbc7</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>com.oracle</groupId>
+							<artifactId>ojdbc7</artifactId>
+							<version>12.1.0.1</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/lib/ojdbc7.jar</file>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+       </plugins>
         <resources>
             <resource>
             <directory>src/main/java/</directory>

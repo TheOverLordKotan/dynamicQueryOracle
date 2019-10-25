@@ -1,0 +1,40 @@
+{
+  "groups": [{
+    "name": "my",
+    "type": "ws.refcursor.props.MyProperties",
+    "sourceType": "ws.refcursor.props.MyProperties"
+  }],
+  "properties": [
+    {
+      "name": "my.debug",
+      "type": "java.lang.String",
+      "sourceType": "ws.refcursor.props.MyProperties"
+    },
+    {
+      "name": "my.parallel",
+      "type": "java.lang.String",
+      "sourceType": "ws.refcursor.props.MyProperties"
+    },
+    {
+      "name": "my.partition-size",
+      "type": "java.lang.Integer",
+      "sourceType": "ws.refcursor.props.MyProperties"
+    },
+    {
+      "name": "my.pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "ws.refcursor.props.MyProperties"
+    },
+    {
+      "name": "my.request-limit",
+      "type": "java.lang.Integer",
+      "sourceType": "ws.refcursor.props.MyProperties"
+    },
+    {
+      "name": "my.response-limit",
+      "type": "java.lang.Integer",
+      "sourceType": "ws.refcursor.props.MyProperties"
+    }
+  ],
+  "hints": []
+}

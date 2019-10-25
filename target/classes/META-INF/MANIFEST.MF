@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: ws-ref-cursor
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: user
+Implementation-Vendor-Id: ws.refcursor
+Build-Jdk: 1.8.0_171
+Implementation-URL: http://projects.spring.io/spring-boot/ws-ref-curso
+ r/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

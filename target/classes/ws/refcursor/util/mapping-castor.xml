@@ -1,0 +1,28 @@
+<mapping>
+	
+	<class name="java.util.ArrayList" auto-complete="true">
+    	<map-to xml="input" />
+	</class>
+	
+	
+	<class name="ws.refcursor.dto.ObjectNameRequest" auto-complete="true">
+ 
+		<map-to xml="row" />
+ 		
+ 		<field name="objectName" type="string">
+      		<bind-xml name="objectName"/>
+   		</field>
+   				
+	</class>
+	
+	<class name="ws.refcursor.dto.ObjectOwnerRequest" auto-complete="true">
+ 
+        <map-to xml="row" />
+        
+        <field name="objectOwner" type="string">
+            <bind-xml name="objectOwner"/>
+        </field>
+                
+    </class>
+	
+</mapping>
